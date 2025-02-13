@@ -24,18 +24,15 @@ const images = [
     "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/IMG_9952.png?alt=media&token=45d813df-84c4-4a51-ac72-56757d03015f"
 ];
 
-const generateICSFile = (title, startDate, endDate) => {
-    const icsContent = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${title}\nDTSTART:${startDate}Z\nDTEND:${endDate}Z\nEND:VEVENT\nEND:VCALENDAR`;
-    const blob = new Blob([icsContent], { type: "text/calendar" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${title.replace(/\s+/g, "_")}.ics`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+const addEventToGoogleCalendar = (title, details, location, startDate, endDate) => {
+    const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+        title
+    )}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(
+        location
+    )}&dates=${startDate}/${endDate}`;
+    window.open(googleCalendarUrl, "_blank");
 };
+
 
 export default function SanValentin() {
     const [selectedDish, setSelectedDish] = useState(null);
@@ -83,13 +80,25 @@ export default function SanValentin() {
                 <h2 className={styles.subtitle}>Agrega las citas al calendario:</h2>
                 <button
                     className={styles.button}
-                    onClick={() => generateICSFile("Cena Romántica", "20250214T203000", "20250214T223000")}
+                    onClick={() => addEventToGoogleCalendar(
+                        "Cena Romántica",
+                        "Cena en Oriundo con mi persona especial.",
+                        "Oriundo, Montevideo, Uruguay",
+                        "20250214T203000Z",
+                        "20250214T223000Z"
+                    )}
                 >
                     Cena en Oriundo 🍷
                 </button>
                 <button
                     className={styles.button}
-                    onClick={() => generateICSFile("Paseo Juntos, cocinar y almorzar", "20250215T093000", "20250215T143000")}
+                    onClick={() => addEventToGoogleCalendar(
+                        "Paseo Juntos, cocinar y almorzar",
+                        "Un día especial cocinando y almorzando juntos.",
+                        "Montevideo, Uruguay",
+                        "20250215T093000Z",
+                        "20250215T143000Z"
+                    )}
                 >
                     Paseo Juntos, cocinar y almorzar 🌹
                 </button>
