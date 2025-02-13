@@ -58,7 +58,7 @@ export default function SanValentin() {
             </Swiper>
             <p>Por otro año de aventuras más!</p>
             <div className={styles.section}>
-                <h2 className={styles.subtitle}>Elige tu platillo para la cena:</h2>
+                <h2 className={styles.subtitle}>Elige la comida que te va a preparar tu amorchito!:</h2>
                 <div className={styles.buttonGroup}>
                     <button
                         className={`${styles.button} ${selectedDish === "Pasta" ? styles.selected : ""}`}
