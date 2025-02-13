@@ -1,95 +1,68 @@
-import Image from "next/image";
+"use client"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 import styles from "./page.module.css";
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const images = [
+    "/images/photo1.jpg",
+    "/images/photo2.jpg",
+    "/images/photo3.jpg",
+];
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+const handleAddToCalendar = (title, date) => {
+    const appleCalendarUrl = `webcal://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+        title
+    )}&dates=${date}/${date}`;
+    window.open(appleCalendarUrl, "_blank");
+};
+
+export default function SanValentin() {
+    const [selectedDish, setSelectedDish] = useState(null);
+
+    return (
+        <div className={styles.container}>
+            <h1 className={styles.title}>¿Quieres ser mi San Valentín? 💖</h1>
+            <Swiper spaceBetween={10} slidesPerView={1} className={styles.carousel}>
+                {images.map((src, index) => (
+                    <SwiperSlide key={index}>
+                        <img src={src} alt={`photo-${index}`} className={styles.carouselImage} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            <div className={styles.section}>
+                <h2 className={styles.subtitle}>Elige tu platillo para la cena:</h2>
+                <div className={styles.buttonGroup}>
+                    <button
+                        className={`${styles.button} ${selectedDish === "Pasta" ? styles.selected : ""}`}
+                        onClick={() => setSelectedDish("Pasta")}
+                    >
+                        Pasta 🍝
+                    </button>
+                    <button
+                        className={`${styles.button} ${selectedDish === "Sushi" ? styles.selected : ""}`}
+                        onClick={() => setSelectedDish("Sushi")}
+                    >
+                        Sushi 🍣
+                    </button>
+                </div>
+            </div>
+            <div className={styles.section}>
+                <h2 className={styles.subtitle}>Agrega las citas al calendario:</h2>
+                <button
+                    className={styles.calendarButton}
+                    onClick={() => handleAddToCalendar("Cena Romántica", "20240214T190000Z")}
+                >
+                    Añadir Cena 🍷
+                </button>
+                <button
+                    className={styles.calendarButton}
+                    onClick={() => handleAddToCalendar("Paseo Juntos", "20240215T120000Z")}
+                >
+                    Añadir Paseo 🌹
+                </button>
+            </div>
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
