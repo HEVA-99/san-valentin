@@ -29,10 +29,9 @@ const addEventToGoogleCalendar = (title, details, location, startDate, endDate) 
         title
     )}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(
         location
-    )}&dates=${startDate}/${endDate}`;
+    )}&dates=${startDate}/${endDate}&ctz=America/Montevideo`;
     window.open(googleCalendarUrl, "_blank");
 };
-
 
 export default function SanValentin() {
     const [selectedDish, setSelectedDish] = useState(null);
@@ -56,7 +55,7 @@ export default function SanValentin() {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <p>Por otro año de aventuras más!</p>
+            <p>! Por otro año de aventuras más!</p>
             <div className={styles.section}>
                 <h2 className={styles.subtitle}>Elige la comida que te va a preparar tu amorchito!:</h2>
                 <div className={styles.buttonGroup}>
@@ -84,8 +83,8 @@ export default function SanValentin() {
                         "Cena Romántica",
                         "Cena en Oriundo con mi persona especial.",
                         "Oriundo, Montevideo, Uruguay",
-                        "20250214T203000Z",
-                        "20250214T223000Z"
+                        "20250214T233000",
+                        "20250215T013000"
                     )}
                 >
                     Cena en Oriundo 🍷
@@ -96,8 +95,8 @@ export default function SanValentin() {
                         "Paseo Juntos, cocinar y almorzar",
                         "Un día especial cocinando y almorzando juntos.",
                         "Montevideo, Uruguay",
-                        "20250215T093000Z",
-                        "20250215T143000Z"
+                        "20250214T123000",
+                        "20250214T173000"
                     )}
                 >
                     Paseo Juntos, cocinar y almorzar 🌹
