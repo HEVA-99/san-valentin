@@ -8,20 +8,11 @@ import { Autoplay } from "swiper/modules";
 import styles from "./page.module.css";
 
 const images = [
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/06621c39-ef48-4f7a-a17c-6f2cfc14eef5.JPG?alt=media&token=7bc115d6-1770-445b-a043-e6887d33fbe0",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/2366bd73-1f0c-4ebf-906e-9d50eb9d2a98.JPG?alt=media&token=e171c148-513a-43cd-bf1b-f0e7fd796f84",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/2902126c-5dd7-4fbe-807e-2ffa95911677.JPG?alt=media&token=59f77117-6432-4c9e-a71c-730226740eb3",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/2BE56ED9-CC6A-4DE1-9AB1-B23EA2B02D79.JPG?alt=media&token=304e47cc-fc30-45d6-bbbf-d7b223f9564d",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/8c642ef9-3950-4c9a-af90-7f099c95e9bf.JPG?alt=media&token=42463475-80ce-4a4b-97fb-1e61bf3322e5",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/bb67a084-c142-4e37-90ef-3dc0672c8668.JPG?alt=media&token=88f6e461-16e1-47d9-8171-038dfbc9309c",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/d42fc4b4-8173-49c8-bf53-1d4ea80dd942.JPG?alt=media&token=1753ceb3-71a2-4524-b0e1-f9ae04908298",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/e63d2b3e-f08f-475a-9eea-57cc4d68acea.JPG?alt=media&token=7e53e589-5020-4cfe-b978-0cd225706029",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/IMG_1851.png?alt=media&token=b6363add-dcab-4427-87bf-ad88f3798fe2",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/IMG_7057%20(1).png?alt=media&token=e07d7963-ea0f-43c3-9367-b7998a5fc587",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/IMG_7334.png?alt=media&token=0766ca15-61d8-4b10-a220-1345f91ec855",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/IMG_7636%20(1).png?alt=media&token=e1376c22-e842-4da6-9d17-ecb578daaf12",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/IMG_9931.png?alt=media&token=e3cc52c3-b5de-4e8d-a93f-7cafbba1dde7",
-    "https://firebasestorage.googleapis.com/v0/b/mailobi.appspot.com/o/IMG_9952.png?alt=media&token=45d813df-84c4-4a51-ac72-56757d03015f"
+    "/IMG_1.png","/IMG_2.png","/IMG_3.png",
+    "/IMG_4.png","/IMG_5.png","/IMG_6.png",
+    "/IMG_7.JPG","/IMG_8.JPG","/IMG_9.JPG",
+    "/IMG_10.JPG","/IMG_11.JPG","/IMG_12.JPG",
+    "/IMG_13.JPG","/IMG_14.JPG","/IMG_15.JPG",
 ];
 
 const convertToUTC = (dateString) => {
